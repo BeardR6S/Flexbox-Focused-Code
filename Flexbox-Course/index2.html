@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+   <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    /* Parent/Trunk/Adult part of the code */
+
+    .container {
+        margin: 0;
+        height: calc(100vh - 20px);
+        width:  calc(100vw - 20px);
+        border: 10px solid red;
+        display: flex;
+        flex-direction: column; /*Column is Top to Bottom, Row is Right to Left*/
+        justify-content: center;
+    }
+    /* Child/Branch/Child part(s) of the code */
+    .container > .img_blocks {
+        display: flex;
+        flex-direction: row; /*Row is Right to Left, Column is Top to Bottom*/
+        justify-content: center;
+        /* Justify-content can have space-between, space-around, center, flex end, and flex start */
+    }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="img_blocks">
+            <img src="https://source.unsplash.com/random/150x150" alt="">
+            <img src="https://source.unsplash.com/random/150x150" alt="">
+            <img src="https://source.unsplash.com/random/150x150" alt="">
+        </div>
+    </div>
+</body>
+</html>

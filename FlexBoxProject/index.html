@@ -1,0 +1,148 @@
+<!-- documentation for flex with examples https://developer.mozilla.org/en-US/docs/Web/CSS/flex -->
+
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            /* Moved items next to each other from underneath each other by creating a "container" that goes left to right*/
+        }
+
+        .container .item {
+            display: flex;
+            flex: 1; 
+            /* flex combines flex-basis, flex-shrink and flex-grow into one property */
+            justify-content: space-between;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 10px;
+        }
+
+        .container .item .content {
+            display: flex; 
+        }
+
+        .container .item .content .metadata {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 20px;
+        }
+
+        .container .item .content .metadata .title {
+            margin: 0px;
+        }
+
+        .container .item .btn-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .container .item .btn-group .button {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            /* left to right = row */
+            width: 42px;
+            justify-content: center;
+            font-size: 2em;
+            /* When using FontAwesome images, you can adjust them as if they are fonts */
+        }
+
+        .container .item .btn-group .button a {
+            color: red;
+            /* overrides the HTML base color of blue since the buttons are technically links */
+            text-decoration: none;
+            /* stops it from having any action when hovered over except what you code it to do */
+
+        }
+
+        .container .item .btn-group .button:hover {
+            background-color: green;
+            cursor: pointer;
+            /* can make it to where when your cursor goes over a link it changes to let the person know its a link as some search engines dont automatically do so */
+        }
+
+        .container .item .btn-group .button:hover a {
+            color: white;
+        }
+
+        .item.featured {
+            flex: auto;
+        }
+
+        .item.associated {
+            flex: initial;
+        }
+
+        /*  So see what it's done right here is it's taken all of that content and says okay this only needs this much space and then the one on the left-hand side takes up everything else that is left. */
+
+    </style>
+</head>
+
+<body>
+
+    <div class='container'>
+        <div class='item featured'>
+            <div class='content'>
+                <img src='https://d32xj74kbqkoqn.cloudfront.net/uploads/campsite/campsite_image/129/dissecting-rails-icon.jpg' width='200px'
+                    height='120px'>
+                <div class='metadata'>
+                    <h1 class='title'>My amazing title</h1>
+                    <h3>And a subtitle</h3>
+                </div>
+            </div>
+            <div class='btn-group'>
+                <div class='button'>
+                    <a href="#">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                </div>
+                <div class='button'>
+                    <a href="#">
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class='item associated'>
+            <div class='content'>
+                <img src='https://d32xj74kbqkoqn.cloudfront.net/uploads/guide/video_image/43/foundations-video-thumb.jpg' width='200px' height='120px'>
+                <div class='metadata'>
+                    <h1 class='title'>Another amazing post</h1>
+                </div>
+            </div>
+            <div class='btn-group'>
+                <div class='button'>
+                    <a href="#">
+                        <i class="fas fa-plus-circle"></i>
+                    </a>
+                </div>
+                <div class='button'>
+                    <a href="#">
+                        <i class="fas fa-times-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
